@@ -16,10 +16,16 @@ export default function PlaceView(props: Props) {
           <Header.Subheader>
             {props.place.address}
           </Header.Subheader>
+
         </Grid.Column>
         <Grid.Column width={8}>
           <Header>
             <h3>Working hours</h3>
+            <Header.Subheader >
+              <div className={props.place.open ? 'green' : 'red'}>
+                {props.place.open ? 'Open' : 'Closed'}
+              </div>
+            </Header.Subheader>
           </Header>
           {
             Object.keys(props.place.workingHours).map(key => {
