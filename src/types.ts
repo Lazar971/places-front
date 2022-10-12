@@ -1,12 +1,21 @@
 
-export interface Place {
+export type Place = {
   id: string,
   name: string,
   address: string,
-  open: boolean,
   workingHours: {
     [key: string]: WorkingHoursSlot[]
   }
+} & (OpenPlace | ClosedPlace)
+
+export type OpenPlace = {
+  open: true,
+  closingTime: string
+}
+
+export type ClosedPlace = {
+  open: false,
+  openingTime?: string
 }
 
 export interface WorkingHoursSlot {

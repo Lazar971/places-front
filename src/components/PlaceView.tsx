@@ -26,6 +26,19 @@ export default function PlaceView(props: Props) {
                 {props.place.open ? 'Open' : 'Closed'}
               </div>
             </Header.Subheader>
+            <Header.Subheader>
+              {
+                props.place.open ? (
+                  <div>
+                    Closes at {props.place.closingTime}
+                  </div>
+                ) : (
+                  <div>
+                    Opens at {props.place.openingTime || '/'}
+                  </div>
+                )
+              }
+            </Header.Subheader>
           </Header>
           {
             Object.keys(props.place.workingHours).map(key => {
